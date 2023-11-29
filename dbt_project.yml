@@ -43,7 +43,7 @@ models:
     Stage :
       +schema: marketing
       +materialized: table
-    school:
+    School:
       +schema: class
       +materialized: table
 
