@@ -1,5 +1,7 @@
 
-{{ config(database="sch") }}
+{{ config(
+  target_database="DEVELOPMENT"
+) }}
 
 with source_data as (
 

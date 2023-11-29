@@ -7,12 +7,22 @@ sources:
     tables:
       - name: orders
         description: main order tracking table
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("Order_table")
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("Order_table")
         columns:
           - name: o_orderkey
             description: SF*1,500,000 are sparsely populated
             tests: 
               - unique
               - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number
+              
+          
+           
 
       - name: lineitem
         description: main lineitem table
@@ -31,6 +41,8 @@ sources:
             tests:
               - unique
               - not_null
+              
+        
 
       - name: SUPPLIER
         description: supplier details will available
