@@ -1,5 +1,5 @@
 
-{{ config(materialized='table') }}
+{{ config(database="sch") }}
 
 with source_data as (
 
