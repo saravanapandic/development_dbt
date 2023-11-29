@@ -43,5 +43,9 @@ models:
     Stage :
       +schema: marketing
       +materialized: table
+    school:
+      +schema: class
+      +materialized: table
+
 
 
