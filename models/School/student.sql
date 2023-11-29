@@ -1,3 +1,6 @@
+
+{{ config(materialized='table') }}
+
 with source_data as (
 
     select 1 as id,'swetha' as name, 21 as age
