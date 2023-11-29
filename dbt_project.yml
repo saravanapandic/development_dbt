@@ -40,7 +40,7 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
-    stage :
+    Stage :
       +schema: marketing
       +materialized: table
 
