@@ -7,7 +7,6 @@ sources:
     tables:
       - name: orders
         description: main order tracking table
-        
         columns:
           - name: o_orderkey
             description: SF*1,500,000 are sparsely populated
@@ -28,6 +27,24 @@ sources:
         description: customer details will available
         columns:
           - name: C_CUSTKEY
+            description: primary key
+            tests:
+              - unique
+              - not_null
+
+      - name: SUPPLIER
+        description: supplier details will available
+        columns:
+          - name: S_SUPPKEY
+            description: primary key
+            tests:
+              - unique
+              - not_null
+
+      - name: PART
+        description: Partner details will available
+        columns:
+          - name: P_PARTKEY
             description: primary key
             tests:
               - unique
