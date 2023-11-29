@@ -9,7 +9,7 @@ with source_data as (
     union all
     select 3 as id, 'shajahan' as name, 22 as age
     union all
-    select 4 as id, 'sashanth' as name, 22 as age
+    select 3 as id, 'sashanth' as name, 22 as age
 
 )
 
