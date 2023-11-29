@@ -21,7 +21,7 @@ lineitem_table as (
         L_SHIPDATE,
         L_COMMITDATE,
         L_RECEIPTDATE,
-        DATEL_SHIPINSTRUCT,
+        L_SHIPINSTRUCT,
         L_SHIPMODE,
         L_COMMENT
     from source
