@@ -4,7 +4,7 @@ models:
     - name: student
       description: "A student dbt model"
       columns:
-          - name: id
+          - name: ID
             description: "The primary key for this table"
             tests:
                 - unique
