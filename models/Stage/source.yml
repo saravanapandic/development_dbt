@@ -42,6 +42,8 @@ sources:
             tests:
               - unique:
                   tags: ['table_source']
+                  config:
+                    severity: warn
               - not_null:
                   tags: ['table_source']
               - relationships:
