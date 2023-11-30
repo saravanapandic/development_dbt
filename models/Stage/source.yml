@@ -40,11 +40,17 @@ sources:
           - name: l_orderkey
             description: Foreign Key to O_ORDERKEY
             tests:
+              - unique:
+                  tags: ['table_source']
+    
               - relationships:
                   to: source('tpch', 'orders')
                   field: o_orderkey
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
+                  tags: ['table_source'] 
+              - dbt_expectations.expect_column_values_to_be_null:
+                  row_condition: "id is  null"
                   tags: ['table_source'] 
               
       - name: CUSTOMER
