@@ -10,6 +10,7 @@ sources:
         tests:
           - dbt_expectations.expect_table_row_count_to_equal_other_table:
               compare_model: ref("Order_table")
+              tags: ['table_row']
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
               compare_model: ref("Order_table")
         columns:
