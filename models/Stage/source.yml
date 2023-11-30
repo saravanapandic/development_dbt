@@ -43,7 +43,7 @@ sources:
               - unique:
                   tags: ['table_source']
                   config:
-                    severity: warn
+                    severity: error
               - not_null:
                   tags: ['table_source']
               - relationships:
