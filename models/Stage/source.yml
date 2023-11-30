@@ -20,6 +20,8 @@ sources:
             tests: 
               - unique:
                   tags: ['table_source']
+                  config:
+                    severity: error
               - not_null:
                   tags: ['table_source']
               - dbt_expectations.expect_column_values_to_be_of_type:
