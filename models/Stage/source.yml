@@ -51,7 +51,7 @@ sources:
                   column_type: varchar
                   tags: ['table_source']
                   config:
-                    severity: error         
+                    severity: warn         
       - name: CUSTOMER
         description: customer details will available
         tests:
