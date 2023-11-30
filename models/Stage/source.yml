@@ -16,7 +16,6 @@ sources:
               tags: ['table_stage']
         columns:
           - name: o_orderkey
-            
             description: SF*1,500,000 are sparsely populated
             tests: 
               - unique:
@@ -33,6 +32,13 @@ sources:
 
       - name: lineitem
         description: main lineitem table
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("lineitem_table")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("lineitem_table")
+              tags: ['table_stage']
         columns:
           - name: l_orderkey
             description: Foreign Key to O_ORDERKEY
@@ -41,47 +47,78 @@ sources:
                   to: source('tpch', 'orders')
                   field: o_orderkey
               - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: number 
+                  column_type: number
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_value_lengths_to_equal:
                   value: 100
                   tags: ['table_source'] 
       - name: CUSTOMER
         description: customer details will available
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("customer_table")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("customer_table")
+              tags: ['table_stage']
         columns:
           - name: C_CUSTKEY
             description: primary key
             tests:
-              - unique
-              - not_null
+              - unique:
+                  tags: ['table_source']
+              - not_null:
+                  tags: ['table_source']
               - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: number 
+                  column_type: number
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_value_lengths_to_equal:
                   value: 100
                   tags: ['table_source'] 
       - name: SUPPLIER
         description: supplier details will available
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("supplier_table")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("supplier_table")
+              tags: ['table_stage']
         columns:
           - name: S_SUPPKEY
             description: primary key
             tests:
-              - unique
-              - not_null
+              - unique:
+                  tags: ['table_source'] 
+              - not_null:
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: number 
+                  column_type: number
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_value_lengths_to_equal:
                   value: 100
                   tags: ['table_source'] 
 
       - name: PART
         description: Partner details will available
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("part")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("part")
+              tags: ['table_stage']
         columns:
           - name: P_PARTKEY
             description: primary key
             tests:
-              - unique
-              - not_null
+              - unique:
+                  tags: ['table_source'] 
+              - not_null:
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
+                  tags: ['table_source'] 
               - dbt_expectations.expect_column_value_lengths_to_equal:
                   value: 100
                   tags: ['table_source']
