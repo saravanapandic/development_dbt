@@ -7,12 +7,29 @@ sources:
     tables:
       - name: orders
         description: main order tracking table
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("Order_table")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("Order_table")
+              tags: ['table_stage']
         columns:
           - name: o_orderkey
+            
             description: SF*1,500,000 are sparsely populated
             tests: 
-              - unique
-              - not_null
+              - unique:
+                  tags: ['table_source']
+              - not_null:
+                  tags: ['table_source']
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number 
+                  tags: ['table_source'] 
+              - dbt_expectations.expect_column_value_lengths_to_equal:
+                  value: 100
+                  tags: ['table_source']
+                
 
       - name: lineitem
         description: main lineitem table
@@ -23,6 +40,11 @@ sources:
               - relationships:
                   to: source('tpch', 'orders')
                   field: o_orderkey
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number 
+              - dbt_expectations.expect_column_value_lengths_to_equal:
+                  value: 100
+                  tags: ['table_source'] 
       - name: CUSTOMER
         description: customer details will available
         columns:
@@ -31,7 +53,11 @@ sources:
             tests:
               - unique
               - not_null
-
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number 
+              - dbt_expectations.expect_column_value_lengths_to_equal:
+                  value: 100
+                  tags: ['table_source'] 
       - name: SUPPLIER
         description: supplier details will available
         columns:
@@ -40,6 +66,11 @@ sources:
             tests:
               - unique
               - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number 
+              - dbt_expectations.expect_column_value_lengths_to_equal:
+                  value: 100
+                  tags: ['table_source'] 
 
       - name: PART
         description: Partner details will available
@@ -49,5 +80,10 @@ sources:
             tests:
               - unique
               - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number
+              - dbt_expectations.expect_column_value_lengths_to_equal:
+                  value: 100
+                  tags: ['table_source']
         
       
