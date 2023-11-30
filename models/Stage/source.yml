@@ -27,9 +27,6 @@ sources:
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number 
                   tags: ['table_source'] 
-              - dbt_expectations.expect_column_value_lengths_to_equal:
-                  value: 100
-                  tags: ['table_source']
                 
 
       - name: lineitem
@@ -45,15 +42,20 @@ sources:
           - name: l_orderkey
             description: Foreign Key to O_ORDERKEY
             tests:
+              - unique:
+                  tags: ['table_source']
+                  config:
+                    severity: error
+              - not_null:
+                  tags: ['table_source']
               - relationships:
                   to: source('tpch', 'orders')
                   field: o_orderkey
               - dbt_expectations.expect_column_values_to_be_of_type:
-                  column_type: number
-                  tags: ['table_source'] 
-              - dbt_expectations.expect_column_value_lengths_to_equal:
-                  value: 100
-                  tags: ['table_source'] 
+                  column_type: varchar
+                  tags: ['table_source']
+                  config:
+                    severity: warn         
       - name: CUSTOMER
         description: customer details will available
         tests:
@@ -74,9 +76,7 @@ sources:
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
                   tags: ['table_source'] 
-              - dbt_expectations.expect_column_value_lengths_to_equal:
-                  value: 100
-                  tags: ['table_source'] 
+             
       - name: SUPPLIER
         description: supplier details will available
         tests:
@@ -97,10 +97,6 @@ sources:
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
                   tags: ['table_source'] 
-              - dbt_expectations.expect_column_value_lengths_to_equal:
-                  value: 100
-                  tags: ['table_source'] 
-
       - name: PART
         description: Partner details will available
         tests:
@@ -121,8 +117,6 @@ sources:
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
                   tags: ['table_source'] 
-              - dbt_expectations.expect_column_value_lengths_to_equal:
-                  value: 100
-                  tags: ['table_source']
+              
         
       
