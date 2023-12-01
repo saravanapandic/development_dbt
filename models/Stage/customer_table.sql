@@ -23,5 +23,5 @@ customer_table as (
 )
 select * from customer_table
 {% if is_incremental() %}
-  where C_CUSTKEY != (select C_CUSTKEY from {{ this }})
+  where C_CUSTKEY > (select min(C_CUSTKEY) from {{ this }})
 {% endif %}
