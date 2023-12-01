@@ -23,5 +23,5 @@ customer_table as (
 )
 select * from customer_table
 {% if is_incremental() %}
-  where CUSTOMER_TABLE != (select * from {{ this }})
+  where C_CUSTKEY != (select C_CUSTKEY from {{ this }})
 {% endif %}
