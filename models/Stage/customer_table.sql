@@ -1,9 +1,8 @@
 with source as (
 
-    select * from {{ source('tpch', 'CUSTOMER') }}
+    select * from {{ source_2('sample_increment', 'CUSTOMER') }}
 
 ),
-
 customer_table as (
 
     select

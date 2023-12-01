@@ -1,0 +1,27 @@
+version: 2
+sources:
+  - name: sample_increment
+    description: source tpch data
+    database: SOURCE2
+    schema: DEMO
+    tables:
+      - name: CUSTOMER
+        description: main order tracking table
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal_other_table:
+              compare_model: ref("Order_table")
+              tags: ['table_stage']
+          - dbt_expectations.expect_table_column_count_to_equal_other_table:
+              compare_model: ref("Order_table")
+              tags: ['table_stage']
+        columns:
+          - name: C_CUSTKEY
+            description: SF*1,500,000 are sparsely populated
+            tests: 
+              - unique:
+                  tags: ['table_source']
+              - not_null:
+                  tags: ['table_source']
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number 
+                  tags: ['table_source'] 
