@@ -1,6 +1,11 @@
+{{
+    config(
+        materialized='incremental'
+    )
+}}
 with source as (
 
-    select * from {{ source_2('sample_increment', 'CUSTOMER') }}
+    select * from {{ source('sample_increment', 'CUSTOMER') }}
 
 ),
 customer_table as (
@@ -15,7 +20,8 @@ customer_table as (
         C_MKTSEGMENT,
         C_COMMENT
     from source
-
 )
-
 select * from customer_table
+{% if is_incremental() %}
+  where CUSTOMER_TABLE != (select * from {{ this }})
+{% endif %}

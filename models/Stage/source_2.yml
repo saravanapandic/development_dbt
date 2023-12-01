@@ -2,8 +2,8 @@ version: 2
 sources:
   - name: sample_increment
     description: source tpch data
-    database: SOURCE2
-    schema: DEMO
+    database: source2
+    schema: demo
     tables:
       - name: CUSTOMER
         description: main order tracking table
