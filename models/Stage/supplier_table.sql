@@ -1,3 +1,4 @@
+
 with source as (
 
     select * from {{ source('tpch', 'SUPPLIER') }}
@@ -19,3 +20,4 @@ supplier_table as (
 )
 
 select * from supplier_table
+
