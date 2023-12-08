@@ -1,4 +1,1 @@
-use database SOURCE2;
-use schema DEMO;
-
 CREATE TABLE STAGE_DBT.DEMO.HELLO_WORLD(B INT)
