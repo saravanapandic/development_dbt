@@ -30,16 +30,4 @@ jobs:
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
-          echo "Step 1: Installing schemachange"
-          pip install snowflake-connector-python
-          ctx = snowflake.connector.connect(
-          user="<username>",
-          host="<hostname>",
-          account="<account_identifier>",
-          authenticator="oauth",
-          token="<oauth_access_token>",
-          warehouse="test_warehouse",
-          database="test_db",
-          schema="test_schema"
-          )
-        
+          python -m pip install dbt-core
