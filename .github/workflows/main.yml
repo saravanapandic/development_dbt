@@ -30,4 +30,4 @@ jobs:
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
-          python -m pip install dbt-core
+          
