@@ -32,5 +32,6 @@ jobs:
           python --version
           echo "Step 1: Installing schemachange"
           pip install snowflake-connector-python
+          $ curl -O https://sfc-repo.azure.snowflakecomputing.com/snowsql/bootstrap/<bootstrap_version>/linux_x86_64/snowsql-<version>-linux_x86_64.bash
           
         
