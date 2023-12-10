@@ -1,5 +1,16 @@
 USE DATABASE STAGE_DBT;
 USE SCHEMA PUBLIC;
-CREATE STAGE STAGE_DBT.PUBLIC.my_int_stage
-  COPY_OPTIONS = (ON_ERROR='skip_file');
-
+create or replace PROCEDURE Details(id float)
+RETURNS table()
+LANGUAGE SQL
+EXECUTE AS OWNER
+AS
+$$
+DECLARE
+  Select_id RESULTSET;
+BEGIN
+  Select_id := ''SELECT * FROM DEMO.PROCEDURE.WORLDWIDES WHERE LAT =''||:id ||''limit 1'';
+  EXECUTE IMMEDIATE :Select_id;
+  --RETURN TABLE(res);
+END;
+$$;
