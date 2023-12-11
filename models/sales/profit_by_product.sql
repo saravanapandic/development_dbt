@@ -3,4 +3,4 @@
         materialized='incremental'
     )
 }}
-SELECT $3,sum($14) FROM @sales_stage group by $3
+SELECT $3 as Products,sum($14) as Total_profit FROM @sales_stage group by $3
