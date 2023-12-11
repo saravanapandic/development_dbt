@@ -1,1 +1,15 @@
-
+my-snowflake-db:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: iy53956.central-india.azure
+      user: DEPLOYMENT
+      password: Elait@1234
+      role: ACCOUNTADMIN
+      database: dbt_github
+      warehouse: COMPUTE_WH
+      schema: PUBLIC
+      threads: 4
+      client_session_keep_alive: False
+     
