@@ -1,4 +1,4 @@
-use database ${{ secrets.SF_DATABASE }};
+use database DBT_GITHUB;
 
 CREATE OR REPLACE FILE FORMAT my_csv_format
   TYPE = CSV
