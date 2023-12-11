@@ -30,6 +30,11 @@ jobs:
           pip install dbt-snowflake==1.3.0
           pip install re_data
           pip install re_cloud
-
+      - name: Run dbt
+        run: |
+          dbt --version
+          dbt deps
+          dbt run
+          re_data run
 
      
