@@ -1,4 +1,3 @@
-[4:24 PM] Saravanapandi C
 {{
     config(
         materialized='incremental'
