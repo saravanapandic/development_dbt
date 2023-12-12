@@ -43,9 +43,12 @@ jobs:
         run: |
           pip install dbt-core==1.3.0
           pip install dbt-snowflake==1.3.0
-      - name: Run dbt
+      - name: dbt testing on source 
         run: |
           dbt --version
           dbt deps
+          dbt test --select source
+      - name: loading data from stage to table
+        run: |
           dbt run --select sales
         
