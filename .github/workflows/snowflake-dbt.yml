@@ -4,7 +4,7 @@ name: snowflake-dbt
 on:
   push:
     branches:
-      - main/models/sales
+      - main
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
