@@ -1,6 +1,6 @@
 use database {{ env_var('SF_DATABASE')}};
 
-create schema SALES_DETAILS;
+create schema SALES_DETAILS if not exits;
 
 use schema SALES_DETAILS;
 
