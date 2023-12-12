@@ -1,5 +1,7 @@
 use database {{ env_var('SF_DATABASE')}};
 
+use schema SALES_DETAILS;
+
 CREATE OR REPLACE FILE FORMAT my_csv_format
   TYPE = CSV
   SKIP_HEADER = 1;
