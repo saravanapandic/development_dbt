@@ -1,6 +1,10 @@
 {{
     config(
-        materialized='incremental'
+        materialized='incremental',
+        on_schema_change='append_new_columns',
+        unique_key='C_CUSTKEY',
+        merge_update_columns = ['C_NAME']
+        
     )
 }}
 with source as (
@@ -11,18 +15,7 @@ with source as (
 customer_table as (
 
     select
-        C_CUSTKEY,
-        C_NAME,
-        C_ADDRESS,
-        C_NATIONKEY,
-        C_PHONE,
-        C_ACCTBAL,
-        C_MKTSEGMENT,
-        C_COMMENT,
-        insert_date
+        *
     from source
 )
 select * from customer_table
-{% if is_incremental() %}
-  where insert_date  > (select max(insert_date) from {{ this }})
-{% endif %}
