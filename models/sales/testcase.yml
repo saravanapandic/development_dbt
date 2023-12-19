@@ -18,8 +18,8 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["REGION", "COUNTRY","ITEM_TYPE","SALES_TYPE","ORDER_PRIORITY","ORDER_DATE","ORDER_ID","SHIP_DATE","UNITS_SOLD","UNITS_PRICE","UNIT_COST","TOTAL_REVENUE","TOTAL_COST","TOTAL_PROFIT","DATE_DIFFERENCE"]
           - dbt_expectations.expect_table_row_count_to_be_between:
-             min_value: 1 # (Optional)
-             max_value: 180000 # (Optional)
+             min_value: 1
+             max_value: 180000 
           - dbt_expectations.expect_table_row_count_to_equal:
               value: 180000
         columns:
@@ -28,7 +28,98 @@ sources:
             tests: 
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: varchar
+          - name: COUNTRY
+            description: country 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: varchar
+          - name: ITEM_TYPE
+            description: item_type
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: varchar
+          - name: SALES_CHANNEL
+            description: sales_channel 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: varchar
+              - dbt_expectations.expect_column_distinct_values_to_equal_set:      
+                  value_set: ['Online','Offline']
+          - name: ORDER_PRIORITY
+            description: order_priority 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: varchar
+              - dbt_expectations.expect_column_distinct_values_to_equal_set:      
+                  value_set: ['L','M','H','C']
+          - name: ORDER_DATE
+            description: order date
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: date
+          - name: ORDER_ID
+            description: region 
+            tests:
+              - unique
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number 
+          - name: SHIP_DATE
+            description: ship_date 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: date
+          - name: UNITS_SOLD
+            description: units_sold 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: number
+          - name: UNIT_PRICE
+            description: unit_price 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: float
+          - name: UNIT_COST
+            description: unit_cost
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: float
+          - name: TOTAL_REVENUE
+            description: total_revenue 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: float
+          - name: TOTAL_COST
+            description: units_sold 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: float
+           - name: TOTAL_PROFIT
+             description: total_profit 
+             tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
+                  column_type: float 
+
+
+
+
+
+
+
+
 
            
 
