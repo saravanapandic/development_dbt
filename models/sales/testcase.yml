@@ -22,6 +22,7 @@ sources:
              max_value: 180000 
           - dbt_expectations.expect_table_row_count_to_equal:
               value: 12
+        columns:
           - name: PRODUCTS
             description: products 
             tests: 
