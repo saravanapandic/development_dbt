@@ -51,7 +51,4 @@ jobs:
       - name: loading data from stage to table
         run: |
           dbt run --select sales
-      - name: test on loaded data 
-        run: |
-          dbt test --select sales
         

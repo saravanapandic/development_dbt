@@ -21,7 +21,11 @@ sources:
              min_value: 1
              max_value: 180000 
           - dbt_expectations.expect_table_row_count_to_equal:
+<<<<<<< HEAD
               value: 12
+=======
+              value: ${{ secrets.A }}
+>>>>>>> c4dc611a92f04bf6fed4cf91a4bda332356bbc7d
         columns:
           - name: PRODUCTS
             description: products 
