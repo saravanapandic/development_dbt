@@ -98,7 +98,7 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: varchar
-              - dbt_expectations.expect_column_distinct_values_to_equal_set:      
+              - dbt_expectations.expect_column_values_to_be_in_set:      
                   value_set: ['L','M','H','C']
           - name: ORDER_DATE
             description: order date
@@ -191,7 +191,7 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: varchar
-          - name: SALES_CHANNEL
+          - name: SALES_TYPE
             description: sales_channel 
             tests: 
               - not_null
@@ -205,7 +205,7 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: varchar
-              - dbt_expectations.expect_column_distinct_values_to_equal_set:      
+              - dbt_expectations.expect_column_values_to_be_in_set:      
                   value_set: ['L','M','H','C']
           - name: ORDER_DATE
             description: order date
