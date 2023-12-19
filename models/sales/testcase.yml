@@ -22,30 +22,30 @@ sources:
              max_value: 180000 
           - dbt_expectations.expect_table_row_count_to_equal:
               value: 180000
-         columns:
+        columns:
           - name: PRODUCTS
             description: products 
             tests: 
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: varchar
-           - name: UNITS_SOLD
-             description: units_sold
-             tests: 
-               - not_null
-               - dbt_expectations.expect_column_values_to_be_of_type:
+          - name: UNITS_SOLD
+            description: units_sold
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: number
-           - name: COST_PRICE
-             description: cost_price 
-             tests: 
-               - not_null
-               - dbt_expectations.expect_column_values_to_be_of_type:
+          - name: COST_PRICE
+            description: cost_price 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float
-            - name: SELLING_PRICE
-              description: selling_price 
-              tests: 
-               - not_null
-               - dbt_expectations.expect_column_values_to_be_of_type:
+          - name: SELLING_PRICE
+            description: selling_price 
+            tests: 
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float
                   
       - name: OFFLINE_SALES
@@ -149,9 +149,9 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float
-           - name: TOTAL_PROFIT
-             description: total_profit 
-             tests: 
+          - name: TOTAL_PROFIT
+            description: total_profit 
+            tests: 
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float 
@@ -256,9 +256,9 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float
-           - name: TOTAL_PROFIT
-             description: total_profit 
-             tests: 
+          - name: TOTAL_PROFIT
+            description: total_profit 
+            tests: 
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float 
