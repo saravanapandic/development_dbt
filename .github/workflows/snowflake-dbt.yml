@@ -40,8 +40,6 @@ jobs:
           
           echo "Step 2: create stage and file format"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-      - name: Print name
-        run: echo " this value $SF_DATABASE"
       - name: Install dbt and snowflake
         run: |
           pip install dbt-core==1.3.0
@@ -53,4 +51,7 @@ jobs:
       - name: loading data from stage to table
         run: |
           dbt run --select sales
+      - name: test on loaded data 
+        run: |
+          dbt test --select sales
         
