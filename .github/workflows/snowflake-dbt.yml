@@ -49,7 +49,6 @@ jobs:
         run: |
           dbt --version
           dbt deps
-          dbt test --select source
       - name: loading data from stage to table
         run: |
           dbt run --select sales

@@ -9,7 +9,7 @@ CREATE OR REPLACE FILE FORMAT my_csv_format
   SKIP_HEADER = 1;
 
 CREATE OR REPLACE STAGE sales_stage
-  URL='azure://swethastorageaccount.blob.core.windows.net/csv'
+  URL='azure://swethastorageaccount.blob.core.windows.net/csv/SalesRecords'
   STORAGE_INTEGRATION = azure_integration
   FILE_FORMAT= my_csv_format;
 
@@ -20,7 +20,7 @@ CREATE OR REPLACE FILE FORMAT my_csv_format
   SKIP_HEADER = 1;
 
 CREATE OR REPLACE STAGE sales_stage
-  URL='azure://swethastorageaccount.blob.core.windows.net/csv'
+  URL='azure://swethastorageaccount.blob.core.windows.net/csv/SalesRecords'
   STORAGE_INTEGRATION = azure_integration
   FILE_FORMAT= my_csv_format;
 
