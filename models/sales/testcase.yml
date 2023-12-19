@@ -21,7 +21,7 @@ sources:
              min_value: 1
              max_value: 180000 
           - dbt_expectations.expect_table_row_count_to_equal:
-              value: 180000
+              value: ${{ secrets.A }}
         columns:
           - name: PRODUCTS
             description: products 
