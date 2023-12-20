@@ -24,4 +24,6 @@ CREATE OR REPLACE STAGE sales_stage
   STORAGE_INTEGRATION = azure_integration
   FILE_FORMAT= my_csv_format;
 
+create or replace database production_dbt;
+
 
