@@ -13,9 +13,9 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["PRODUCTS", "UNITS_SOLD","COST_PRICE","SELLING_PRICE","TOTAL_REVENUE","TOTAL_PROFIT"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('profit_by_product') 
           - dbt_expectations.expect_table_row_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('profit_by_product')
         columns:
           - name: PRODUCTS
             description: products 
@@ -50,9 +50,9 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["REGION", "COUNTRY","ITEM_TYPE","SALES_TYPE","ORDER_PRIORITY","ORDER_DATE","ORDER_ID","SHIP_DATE","UNITS_SOLD","UNITS_PRICE","UNIT_COST","TOTAL_REVENUE","TOTAL_COST","TOTAL_PROFIT","DATE_DIFFERENCE"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('offline_sales')
           - dbt_expectations.expect_table_row_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('offline_sales')
         columns:
           - name: REGION
             description: region 
@@ -150,9 +150,9 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["REGION", "COUNTRY","ITEM_TYPE","SALES_TYPE","ORDER_PRIORITY","ORDER_DATE","ORDER_ID","SHIP_DATE","UNITS_SOLD","UNITS_PRICE","UNIT_COST","TOTAL_REVENUE","TOTAL_COST","TOTAL_PROFIT","DATE_DIFFERENCE"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('online_sales') 
           - dbt_expectations.expect_table_row_count_to_equal_other_table:
-              compare_model: ref("other_model")
+              compare_model: ref('online_sales')
         columns:
           - name: REGION
             description: region 
