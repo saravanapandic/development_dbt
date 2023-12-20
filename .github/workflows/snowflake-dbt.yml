@@ -50,10 +50,16 @@ jobs:
           dbt --version
           dbt deps
           dbt test --select source 
-      - name: loading data from stage to table
+      - name: loading data from stage table  to  st_table
         run: |
           dbt run --select sales
-      - name: test on loaded data 
+      - name: test on st_table 
         run: |
           dbt test --select sales
+      - name: loading data from stage   to  production_dbt table
+        run: |
+          dbt run --select production
+      - name: test on production_dbt table 
+        run: |
+          dbt test --select production   
         

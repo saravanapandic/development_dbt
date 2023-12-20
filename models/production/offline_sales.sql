@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental'
+        materialized='incremental',database="production_dbt"
     )
 }}
 SELECT 
