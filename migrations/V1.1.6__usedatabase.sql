@@ -1,7 +1,7 @@
 use database {{ env_var('SF_DATABASE')}};
 
   create schema  if not exists SALES_DETAILS;
-
+CREATE OR REPLACE DATABASE DBT_GITHUB;
 use schema SALES_DETAILS;
 
 CREATE OR REPLACE FILE FORMAT my_csv_format
