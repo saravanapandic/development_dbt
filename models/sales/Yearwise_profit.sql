@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database="STAGE_DBT"
+        materialized='incremental'
     )
 }}
 
