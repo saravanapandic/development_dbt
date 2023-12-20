@@ -6,7 +6,7 @@ sources:
     schema: SALES_DETAILS
     tables:
       - name: PROFIT_BY_PRODUCT
-        description: profir per product
+        description: profit per product
         tests:
           - dbt_expectations.expect_table_column_count_to_be_between:
              min_value: 1
