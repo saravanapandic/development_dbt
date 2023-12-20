@@ -1,4 +1,4 @@
-CREATE OR REPLACE DATABASE DBT_GITHUB;
+
 use database {{ env_var('SF_DATABASE')}};
 
   create schema  if not exists SALES_DETAILS;
