@@ -19,4 +19,4 @@ SELECT
     $13::float as total_cost,
     $14::float as total_profit,
     datediff(day,$6,$8)::number as Date_difference 
-FROM @sales_stage WHERE $4 = 'Offline'
+FROM {{ ref('offline_sales') }} WHERE $4 = 'Offline'

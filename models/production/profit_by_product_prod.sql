@@ -10,4 +10,4 @@ SELECT
     $10::float as selling_price,
     sum($12)::float as Total_revenue, 
     sum($14)::float as Total_profit 
-FROM @sales_stage group by $3,$11,$10
+FROM {{ ref('profit_by_product') }} group by $3,$11,$10
