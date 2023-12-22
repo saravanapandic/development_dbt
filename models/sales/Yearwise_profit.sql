@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database='DBT_GITHUB'
+        materialized='incremental',database='DBT_GITHUB',schema='SALES_DETAILS'
     )
 }}
    
