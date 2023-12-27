@@ -1,7 +1,7 @@
 
 use database {{ env_var('SF_DATABASE')}};
 
-  create schema  if not exists SALES_DETAILS;
+  create schema  if not exists  SALES_DETAILS;
 
 use schema SALES_DETAILS;
 
