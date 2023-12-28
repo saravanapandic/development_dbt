@@ -7,7 +7,7 @@ my-snowflake-db:
       user: DEPLOYMENT
       password: Elait@1234
       role: ACCOUNTADMIN
-      database: ddt
+      database: dbt_github
       warehouse: COMPUTE_WH
       schema: PUBLIC
       threads: 4
