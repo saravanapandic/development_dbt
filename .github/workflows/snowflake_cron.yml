@@ -1,0 +1,10 @@
+name: Create our Weekly Meeting notes issue
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: JasonEtco/create-an-issue@v2
