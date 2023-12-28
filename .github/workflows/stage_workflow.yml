@@ -9,7 +9,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 jobs:
-  create-stage-on-development-env-job:
+  create-stage-on-development-env:
     runs-on: ubuntu-latest
 
     steps:
