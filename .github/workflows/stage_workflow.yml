@@ -1,4 +1,4 @@
-name: snowflake_stage_crt
+name: snowflake-stage-crt
 
 # Controls when the action will run. 
 on:
