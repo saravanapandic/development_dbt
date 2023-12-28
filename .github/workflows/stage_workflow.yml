@@ -12,7 +12,7 @@ on:
 jobs:
   create-stage-on-development-env:
     runs-on: ubuntu-latest
-
+    on: [push, workflow_dispatch]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
