@@ -6,10 +6,9 @@ on:
     branches:
       - development
     paths:
-      - 'migrations/**'
+      - 'migrations'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 jobs:
   create-stage-on-development-env-job:
     runs-on: ubuntu-latest
@@ -39,7 +38,7 @@ jobs:
           pip install schemachange
           echo "Step 2: create stage and file format"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-  create-stage-on-QA-env-job:
+  create-stage-on-QA-env:
     runs-on: ubuntu-latest
 
     steps:
