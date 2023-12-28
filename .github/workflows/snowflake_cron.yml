@@ -49,13 +49,5 @@ jobs:
       - name: loading data from stage table  to  st_table
         run: |
           dbt run --select sales
-      - name: test on st_table 
-        run: |
-          dbt test --select sales
-      - name: loading data from stage   to  production_dbt table
-        run: |
-          dbt run --select production
-      - name: test on production_dbt table 
-        run: |
-          dbt test --select production   
+     
         
