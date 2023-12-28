@@ -1,6 +1,5 @@
 name: snowflake-cron
 on:
-  workflow_dispatch:
   schedule:
     - cron: "* * * * *"
   # Allows you to run this workflow manually from the Actions tab
