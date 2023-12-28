@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  create_stage_on_development_env_job:
+  create-stage-on-development-env-job:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,7 @@ jobs:
           pip install schemachange
           echo "Step 2: create stage and file format"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-  create_stage_on_QA_env_job:
+  create-stage-on-QA-env-job:
     runs-on: ubuntu-latest
 
     steps:
