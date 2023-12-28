@@ -1,7 +1,8 @@
 
 use database {{ env_var('SF_DATABASE')}};
 
-  create schema  if not exists  SALES_DETAILS;
+CREATE OR REPLACE DATABASE Stage_DB;
+create schema  if not exists  SALES_DETAILS;
 
 use schema SALES_DETAILS;
 
@@ -26,5 +27,7 @@ CREATE OR REPLACE STAGE sales_stage
   FILE_FORMAT= my_csv_format;
 
 create or replace database production_dbt;
+
+CREATE OR REPLACE DATABASE target_DB;
 
 
