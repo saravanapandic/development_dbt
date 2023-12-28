@@ -48,7 +48,7 @@ models:
       +schema: class
       +materialized: table
     sales:
-      +schema: sales_details
+      
       +materialized: incremental
     production:
       +schema: sales_details
