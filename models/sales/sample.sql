@@ -6,7 +6,7 @@
 }}
 with source_data as (
 
-    select 2 as id
+    select 5 as id
     union all
     select null as id
 
