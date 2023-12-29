@@ -1,1 +1,1 @@
-SELECT $1,$4 FROM @sales_stage WHERE $4 NOT IN ('Online','Offline')
+SELECT $1,$4 FROM @STAGE_DB.SALES_DETAILS.SALES_STAGE WHERE $4 NOT IN ('Online','Offline')
