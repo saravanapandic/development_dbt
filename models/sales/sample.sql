@@ -1,4 +1,9 @@
 
+{{
+    config(
+         database='STAGE_DB',schema='SALES_DETAILS'
+    )
+}}
 with source_data as (
 
     select 2 as id
