@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database='DBT_GITHUB',schema='SALES_DETAILS',incremental_strategy = 'merge'
+        materialized='incremental',database='STAGE_DB',schema='SALES_DETAILS',incremental_strategy = 'merge'
     )
 }}
 SELECT 
