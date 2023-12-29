@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database='STAGE_DB',schema='SALES_DETAILS',incremental_strategy = 'merge',merge_update_columns = ['total_profit']
+        materialized='incremental',database='STAGE_DB',unique_key = 'years',schema='SALES_DETAILS',incremental_strategy = 'merge',merge_update_columns = ['total_profit']
     )
 }}
     
