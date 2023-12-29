@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database="production_dbt"
+        materialized='incremental',database="target_DB",schema='SALES_DETAILS',incremental_strategy = 'merge'
     )
 }}
 

@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database='DBT_GITHUB',schema='SALES_DETAILS'
+        materialized='incremental',database='DBT_GITHUB',schema='SALES_DETAILS',incremental_strategy = 'merge',merge_update_columns = ['total_profit']
     )
 }}
     
