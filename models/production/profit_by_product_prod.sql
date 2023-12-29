@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database="target_DB",schema='SALES_DETAILS',incremental_strategy = 'merge'
+        materialized='incremental',database="target_DB",unique_key = 'order_id',schema='SALES_DETAILS',incremental_strategy = 'merge'
     )
 }}
 SELECT 
