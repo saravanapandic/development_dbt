@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database="DBT_GITHUB"
+        materialized='incremental',database='STAGE_DB',schema='SALES_DETAILS',unique_key = 'region',incremental_strategy = 'merge',merge_update_columns = ['region']
     )
 }}
 SELECT 
