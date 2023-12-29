@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',database='STAGE_DB',schema='SALES_DETAILS',incremental_strategy = 'merge'
+        materialized='incremental',database='STAGE_DB',schema='SALES_DETAILS',incremental_strategy = 'merge',,merge_update_columns = ['order_id']
     )
 }}
 SELECT 
