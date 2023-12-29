@@ -2,7 +2,7 @@ version: 2
 sources:
   - name: sample_increment
     description: source tpch data
-    database: DBT_GITHUB
+    database: target_DB
     schema: SALES_DETAILS
     tables:
       - name: PROFIT_BY_PRODUCT

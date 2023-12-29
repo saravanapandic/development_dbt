@@ -2,7 +2,7 @@ version: 2
 sources:
   - name: st_table
     description: source tpch data
-    database: DBT_GITHUB
+    database: STAGE_DB
     schema: SALES_DETAILS
     tables:
       - name: PROFIT_BY_PRODUCT
