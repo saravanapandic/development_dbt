@@ -5,7 +5,7 @@ sources:
     database: target_DB
     schema: SALES_DETAILS
     tables:
-      - name: PROFIT_BY_PRODUCT
+      - name: PROFIT_BY_PRODUCT_prod
         description: profit per product
         tests:
           - dbt_expectations.expect_table_columns_to_contain_set:
@@ -13,7 +13,7 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["PRODUCTS", "UNITS_SOLD","COST_PRICE","SELLING_PRICE","TOTAL_REVENUE","TOTAL_PROFIT"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref('profit_by_product') 
+              compare_model: source('st_table', 'PROFIT_BY_PRODUCT')
         columns:
           - name: PRODUCTS
             description: products 
@@ -40,7 +40,7 @@ sources:
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float
                   
-      - name: OFFLINE_SALES
+      - name: OFFLINE_SALES_PROD
         description: offline sales details 
         tests:
           - dbt_expectations.expect_table_columns_to_contain_set:
@@ -48,7 +48,7 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["REGION", "COUNTRY","ITEM_TYPE","SALES_TYPE","ORDER_PRIORITY","ORDER_DATE","ORDER_ID","SHIP_DATE","UNITS_SOLD","UNITS_PRICE","UNIT_COST","TOTAL_REVENUE","TOTAL_COST","TOTAL_PROFIT","DATE_DIFFERENCE"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref('offline_sales')
+              compare_model: source('st_table', 'OFFLINE_SALES')
         columns:
           - name: REGION
             description: region 
@@ -138,7 +138,7 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float 
-      - name: ONLINE_SALES
+      - name: ONLINE_SALES_PROD
         description: online sales details 
         tests:
           - dbt_expectations.expect_table_columns_to_contain_set:
@@ -146,7 +146,7 @@ sources:
           - dbt_expectations.expect_table_columns_to_match_ordered_list:
               column_list: ["REGION", "COUNTRY","ITEM_TYPE","SALES_TYPE","ORDER_PRIORITY","ORDER_DATE","ORDER_ID","SHIP_DATE","UNITS_SOLD","UNITS_PRICE","UNIT_COST","TOTAL_REVENUE","TOTAL_COST","TOTAL_PROFIT","DATE_DIFFERENCE"]
           - dbt_expectations.expect_table_column_count_to_equal_other_table:
-              compare_model: ref('online_sales') 
+              compare_model: source('st_table', 'ONLINE_SALES') 
         columns:
           - name: REGION
             description: region 
