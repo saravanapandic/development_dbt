@@ -1,20 +1,20 @@
-name: snowflake-stage-crt
+name: snowflake-stage-QA
 
 
 on:
   
   push:
     branches:
-      - development
+      - main
     paths:
       - 'migrations/**'
     workflow_dispatch: 
   # Allows you to run this workflow manually from the Actions tab
   
 jobs:
-  create-stage-on-development-env:
+  create-stage-on-QA-env:
     runs-on: ubuntu-latest
-    
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
@@ -27,12 +27,12 @@ jobs:
 
       - name: Run schemachange
         env:
-          SF_ACCOUNT: ${{ secrets.SF_Dev_ACCOUNT }}
-          SF_USERNAME: ${{ secrets.SF__Dev_USERNAME }}
-          SF_ROLE: ${{ secrets.Dev_SF_ROLE }}
-          SF_WAREHOUSE: ${{ secrets.Dev_SF_WAREHOUSE }}
-          SF_DATABASE: ${{ secrets.Dev_SF_DATABASE }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.Dev_SF_PASSWORD }}
+          SF_ACCOUNT: ${{ secrets.SF_QA_ACCOUNT }}
+          SF_USERNAME: ${{ secrets.SF__QA_USERNAME }}
+          SF_ROLE: ${{ secrets.QA_SF_ROLE }}
+          SF_WAREHOUSE: ${{ secrets.QA_SF_WAREHOUSE }}
+          SF_DATABASE: ${{ secrets.QA_SF_DATABASE }}
+          SNOWFLAKE_PASSWORD: ${{ secrets.QA_SF_PASSWORD }}
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
@@ -40,4 +40,5 @@ jobs:
           pip install schemachange
           echo "Step 2: create stage and file format"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
- 
+     
+

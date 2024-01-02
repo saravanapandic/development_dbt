@@ -1,4 +1,4 @@
-version: 2
+
 sources:
   - name: st_table
     description: source tpch data
@@ -245,16 +245,20 @@ sources:
               - not_null
               - dbt_expectations.expect_column_values_to_be_of_type:
                   column_type: float 
-      
-
-
-
-
-
-
-
-
-
-           
-
-          
+  - name: st_tables
+    description: source tpch data
+    database: STAGE_DB
+    schema: SALES_DETAILS
+    tables:
+      - name: PROFIT_BY_PRODUCT
+        description: profit per product
+        tests:
+          - dbt_expectations.expect_table_column_count_to_be_between:
+             min_value: 1
+             max_value: 6
+          - dbt_expectations.expect_table_columns_to_contain_set:
+              column_list: ["PRODUCTS", "UNITS_SOLD","COST_PRICE","SELLING_PRICE","TOTAL_REVENUE","TOTAL_PROFIT"]
+          - dbt_expectations.expect_table_column_count_to_equal:
+              value: 6
+          - dbt_expectations.expect_table_columns_to_match_ordered_list:
+              column_list: ["PRODUCTS", "UNITS_SOLD","COST_PRICE","SELLING_PRICE","TOTAL_REVENUE","TOTAL_PROFIT"]

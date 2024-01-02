@@ -8,7 +8,7 @@ SELECT
     $2::varchar as Country,
     $3::varchar as Item_type, 
     $4::varchar as Sales_type,
-    $5::char as Order_priority, 
+    $5::char as Order_priority,
     $6::date as Order_date,
     $7::number as order_id,
     $8::date as Ship_date,
