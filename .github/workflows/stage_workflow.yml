@@ -40,33 +40,4 @@ jobs:
           pip install schemachange
           echo "Step 2: create stage and file format"
           schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-  create-stage-on-QA-env:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Use Python 3.8.x
-        uses: actions/setup-python@v2.2.1
-        with:
-          python-version: 3.8.x
-
-      - name: Run schemachange
-        env:
-          SF_ACCOUNT: ${{ secrets.SF_QA_ACCOUNT }}
-          SF_USERNAME: ${{ secrets.SF__QA_USERNAME }}
-          SF_ROLE: ${{ secrets.QA_SF_ROLE }}
-          SF_WAREHOUSE: ${{ secrets.QA_SF_WAREHOUSE }}
-          SF_DATABASE: ${{ secrets.QA_SF_DATABASE }}
-          SNOWFLAKE_PASSWORD: ${{ secrets.QA_SF_PASSWORD }}
-        run: |
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          python --version
-          echo "Step 1: Installing schemachange"
-          pip install schemachange
-          echo "Step 2: create stage and file format"
-          schemachange -f $GITHUB_WORKSPACE/migrations -a $SF_ACCOUNT -u $SF_USERNAME -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DATABASE -c $SF_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
-     
-
+ 
