@@ -1,2 +1,7 @@
+{{
+    config(
+       database="STAGE_DB",schema="sales_details"
+    )
+}}
+SELECT $7, COUNT($7) as counts FROM @STAGE_DB.SALES_DETAILS.SALES_STAGE group by $7 HAVING counts > 1
 
-SELECT $7, COUNT($7) as counts FROM @TAGE_DB.SALES_DETAILS.SALES_STAGES group by $7 HAVING counts > 1
