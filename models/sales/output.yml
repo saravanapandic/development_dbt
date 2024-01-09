@@ -1,0 +1,93 @@
+sources:                                                         
+  - name:dbo_test                                                
+    description: test case for intermediate database             
+    database:AdventureWorks2019                                  
+    schema:dbo                                                   
+    tables:                                                      
+      - name:CUSTOMER                                            
+        description: table test                                  
+        tests:                                                   
+          - dbt_expectations.expect_table_column_count_to_equal: 
+	      value:1                                                                                                                                    
+          - dbt_expectations.expect_table_columns_to_contain_set:
+	      column_list:["CUST_ID"]                                                                                                                                    
+        columns:                                                 
+          - name:CUST_ID                                         
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                    
+		  column_type:NUMBER                                                                                                                                    
+                                                                 
+      - name:Employee                                            
+        description: table test                                  
+        tests:                                                   
+          - dbt_expectations.expect_table_column_count_to_equal: 
+	      value:1                                                                                                                                    
+          - dbt_expectations.expect_table_columns_to_contain_set:
+	      column_list:["EmployeeSk"]                                                                                                                                    
+        columns:                                                 
+          - name:EmployeeSk                                      
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                    
+		  column_type:NUMBER                                                                                                                                    
+                                                                 
+      - name:EmployeeDepartmentHistory                           
+        description: table test                                  
+        tests:                                                   
+          - dbt_expectations.expect_table_column_count_to_equal: 
+	      value:1                                                                                                                                    
+          - dbt_expectations.expect_table_columns_to_contain_set:
+	      column_list:["EmployeeDepartmentHistorySk"]                                                                                                                                    
+        columns:                                                 
+          - name:EmployeeDepartmentHistorySk                     
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                    
+		  column_type:NUMBER                                                                                                                                    
+                                                                 
+  - name:Person_test                                             
+    description: test case for intermediate database             
+    database:AdventureWorks2019                                  
+    schema:Person                                                
+    tables:                                                      
+      - name:BusinessEntity                                      
+        description: table test                                  
+        tests:                                                   
+          - dbt_expectations.expect_table_column_count_to_equal: 
+	      value:2                                                                                                                                    
+          - dbt_expectations.expect_table_columns_to_contain_set:
+	      column_list:["BusinessEntityID","rowguid"]                                                                                                                                    
+        columns:                                                 
+          - name:BusinessEntityID                                
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - not_null                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                    
+		  column_type:NUMBER                                                                                                                                    
+          - name:rowguid                                         
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - not_null                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                     
+		  column_type:VARCHAR                                                                                                                                    
+                                                                 
+  - name:CLASS_test                                              
+    description: test case for intermediate database             
+    database:STUDENT                                             
+    schema:CLASS                                                 
+    tables:                                                      
+      - name:STUDENT                                             
+        description: table test                                  
+        tests:                                                   
+          - dbt_expectations.expect_table_column_count_to_equal: 
+	      value:1                                                                                                                                    
+          - dbt_expectations.expect_table_columns_to_contain_set:
+	      column_list:["STUD_ID"]                                                                                                                                    
+        columns:                                                 
+          - name:STUD_ID                                         
+	    description:column test                                                                                                                                    
+	    tests:                                                                                                                                    
+	      - dbt_expectations.expect_column_values_to_be_of_type:                                                                                                                                    
+		  column_type:NUMBER                                                                                                                                    
+                                                                 
