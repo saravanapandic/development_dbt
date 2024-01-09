@@ -1,8 +1,8 @@
 sources:                                                         
-  - name:dbo_test                                                
+  - name: dbo_test                                                
     description: test case for intermediate database             
-    database:AdventureWorks2019                                  
-    schema:dbo                                                   
+    database: AdventureWorks2019                                  
+    schema: dbo                                                   
     tables:                                                      
       - name:CUSTOMER                                            
         description: table test                                  
